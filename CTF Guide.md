@@ -150,7 +150,7 @@ Under `triggers:`, put a `give_loadout:` trigger. Under that, put `loadout:`. Th
               0:
                 item: wool:10
 ```
-`2` in the example is the level of the soeed, `10` is how many seconds it lasts for. Feel free to change this to your liking.
+`2` in the example is the level of the speed, `10` is how many seconds it lasts for. Feel free to change this to your liking.
 The item should be `wool:ID`, where the ID is the data vaulue, or the "color". Check the data vaulue of the color you want at http://minecraft-ids.grahamedgecombe.com/
 ```
   red-wool:
