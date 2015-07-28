@@ -1,6 +1,7 @@
 *Keep in mind [the docs](docs.avicus.net) when building your YML*
 
 First, you do some basic YML things like the info section, loadouts, and drop modifications
+---------------------
 ```
 info:
   title: Fossil Canyon (CTF)
@@ -14,7 +15,9 @@ info:
   spawn: 22.5,122,4.5,90,0
   ```
 Make sure that the `type:` is set to `ctw`
+
 Loadout can be changed to your liking!
+----------------------
 ```
 repair-drops:
 - iron sword
@@ -52,6 +55,7 @@ loadout:
     amount: 1
 ```
 This is the teams part, and this is when it starts to get tricky.
+---------------
 ```
 teams:
   red:
@@ -78,6 +82,8 @@ But what is important is `chest:`. You must hide two chests anywhere in the map 
 It doesn't matter where, just make sure that no one can reach it. Put the coords of the chest in `monument:` for each team.
 I'm not actually sure if you need to have a chest or put a random coord, but just do that to be sure.
 The `monument:` is just where you would place the wool, like a standard CTW map.
+
+--------------------------------
 ```
 regions:
   global:
@@ -99,6 +105,10 @@ regions:
                 item: golden_apple
 ```
 You can make it if you can build or not, that's your choice.
+You can also add kill rewards!
+
+A boundary is neccesary on every map.
+-------------------------------
 ```
   boundary:
     type: cuboid
@@ -109,6 +119,9 @@ You can make it if you can build or not, that's your choice.
       build:
         who: '*'
         message: '&cYou may not build beyond this map''s restriction boundaries.'
+```
+Now, here is the wool regions!
+---------------
 ```
   purple-wool:
     type: cuboid
@@ -126,6 +139,21 @@ You can make it if you can build or not, that's your choice.
               - speed:2,10
               0:
                 item: wool:10
+```
+You should have an enter flag. `who:` should be the team that must get the wool from that area. For example, if I was on purple, this is where I would have to retrive the wool from. So, it would be `who: purple` for my map.
+Make sure you allow players to enter! Use `allow: true`.
+Also, include a message to notify a player when they get the wool, using `message:`.
+Now, you have a trigger under the enter flag to give them the wool and speed.
+Under `triggers:`, put a `give_loadout:` trigger. Under that, put `loadout:`. Then put
+```
+              effects:
+              - speed:2,10
+              0:
+                item: wool:10
+```
+`2` in the example is the level of the soeed, `10` is how many seconds it lasts for. Feel free to change this to your liking.
+The item should be `wool:ID`, where the ID is the data vaulue, or the "color". Check the data vaulue of the color you want at http://minecraft-ids.grahamedgecombe.com/
+```
   red-wool:
     type: cuboid
     min: -70,69,91
@@ -142,39 +170,8 @@ You can make it if you can build or not, that's your choice.
               - speed:2,10
               0:
                item: wool:14
-  red-tele:
-    type: cuboid
-    min: -74,72,-84
-    max: -74,74,-83
-    flags:
-      enter:
-        who: 'red'
-        allow: true
-        message: '&aSuccessfuly teleported, but you got some &c&ostrange side effects...'
-        triggers:
-          teleport:
-            to: -15.5,77.5,-64.5,-150,20
-          give_loadout:
-            loadout:
-              effects:
-              - wither:2,5
-              - confusion:1,10
-              - slow:1,10
-  purple-tele:
-    type: cuboid
-    min: 0,72,90
-    max: 0,74,89
-    flags:
-      enter:
-        who: 'purple'
-        allow: true
-        message: '&aSuccessfuly teleported, but you got some &c&ostrange side effects...'
-        triggers:
-          teleport:
-            to: -58.5,77.5,71.5,30,20
-          give_loadout:
-            loadout:
-              effects:
-              - wither:2,5
-              - confusion:1,10
-              - slow:1,10
+```
+Just swap things around for the other team!
+
+-------------------------
+You're done
