@@ -1,4 +1,4 @@
-*Keep in mind [the docs](docs.avicus.net) when building your YML*
+*Keep in mind the docs at docs.avicus.net when building your YML*
 
 First, you do some basic YML things like the info section, loadouts, and drop modifications
 ---------------------
@@ -26,6 +26,9 @@ remove-drops:
 - leather chestplate
 - leather leggings
 - leather boots
+- steak
+- arrow
+
 loadout:
   effects:
   - damage resistance:5,5
@@ -90,23 +93,19 @@ regions:
     flags:
       build:
         who: '*'
-        message: '&7[&8&lCTF&r&7] &cYou cannot build on CTF maps!'
-        triggers:
-          ignite_tnt:
-            delay: 3
-            block-damage: false
+        message: '&cYou cannot build on CTF maps!'
       kill_player:
         who: '*'
         triggers:
           give_loadout:
             loadout:
-              2:
+              0:
                 item: golden_apple
 ```
 You can make it if you can build or not, that's your choice.
 You can also add kill rewards!
 
-A boundary is neccesary on every map.
+A boundary is necessary on every map.
 -------------------------------
 ```
   boundary:
@@ -130,7 +129,7 @@ Now, here is the wool regions!
       enter:
         who: 'purple'
         allow: true
-        message: '&7[&8&lCTF&r&7] &aYou have been given the &9PURPLE &awool! Run to your victory monument on your team''s side!'
+        message: '&aYou have been given the &9PURPLE &awool! Run to your victory monument on your team''s side!'
         triggers:
           give_loadout:
             loadout:
@@ -161,7 +160,7 @@ The item should be `wool:ID`, where the ID is the data vaulue, or the "color". C
       enter:
         who: 'red'
         allow: true
-        message: '&7[&8&lCTF&r&7] &aYou have been given the &4RED &awool! Run to your victory monument on your team''s side!'
+        message: '&aYou have been given the &4RED &awool! Run to your victory monument on your team''s side!'
         triggers:
           give_loadout:
             loadout:
