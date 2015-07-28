@@ -17,7 +17,6 @@ info:
 Make sure that the `type:` is set to `ctw`
 
 Loadout can be changed to your liking!
-----------------------
 ```
 repair-drops:
 - iron sword
