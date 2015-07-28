@@ -78,7 +78,7 @@ teams:
 ```
 Of course, you can customize the team name, the spawn, title, max, flag color, flag name, ect.
 But what is important is `chest:`. You must hide two chests anywhere in the map (don't go far away from the map and load chunks and put it there).
-It doesn't matter where, just make sure that no one can reach it. Put the coords of the chest in `monument:` for each team.
+It doesn't matter where, just make sure that no one can reach it. Put the coords of the chest in `chest:` part for each team.
 I'm not actually sure if you need to have a chest or put a random coord, but just do that to be sure.
 The `monument:` is just where you would place the wool, like a standard CTW map.
 
